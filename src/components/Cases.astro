@@ -9,26 +9,26 @@
     <p>Two current clients. Numbers, not adjectives.</p>
   </div>
 
-  <div class="case-list">
+  <div class="flex flex-col">
     <a class="case reveal" href="https://cassieschoonover.com/orderpending1u1m-b" target="_blank" rel="noopener noreferrer">
-      <span class="idx">01</span>
-      <span class="client-mark">C</span>
-      <span class="client-name">Cassie Schoonover</span>
-      <span class="role">Course grade · VSL · reels</span>
-      <span class="stat"><b><span class="curr">$</span>8K+</b> course revenue · week 1</span>
-      <span class="arrow">
+      <span class="font-mono text-xs text-fg-mute tracking-[0.14em] font-medium">01</span>
+      <span class="client-mark w-14 h-14 border-[1.5px] border-rule-strong bg-ink-2 flex items-center justify-center overflow-hidden text-yellow font-display text-[18px] leading-none px-1">C</span>
+      <span class="client-name font-serif italic font-normal tracking-[-0.01em] text-cream leading-none normal-case">Cassie Schoonover</span>
+      <span class="font-mono text-[11px] tracking-[0.12em] uppercase text-fg-dim font-medium">Course grade · VSL · reels</span>
+      <span class="font-mono text-[13px] tracking-[0.12em] uppercase text-fg-dim font-medium stat-text"><b class="text-red font-light text-[24px] font-display tracking-[0.02em] mr-[0.5em]"><span class="mr-[0.2em]">$</span>8K+</b> course revenue · week 1</span>
+      <span class="arrow w-11 h-11 border border-red rounded-full grid place-items-center text-red transition-all duration-200">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
           <path d="M3 11 L11 3 M5 3 H11 V9"/>
         </svg>
       </span>
     </a>
     <a class="case reveal" href="https://www.instagram.com/reel/DTK_xIYCNiS/" target="_blank" rel="noopener noreferrer">
-      <span class="idx">02</span>
-      <span class="client-mark tight">CMD</span>
-      <span class="client-name">CMD Careers</span>
-      <span class="role">Grade · edit · content lead</span>
-      <span class="stat"><b>Top performers</b> on the channel</span>
-      <span class="arrow">
+      <span class="font-mono text-xs text-fg-mute tracking-[0.14em] font-medium">02</span>
+      <span class="client-mark w-14 h-14 border-[1.5px] border-rule-strong bg-ink-2 flex items-center justify-center overflow-hidden text-yellow font-display text-[13px] tracking-[0.02em] leading-none px-1">CMD</span>
+      <span class="client-name font-serif italic font-normal tracking-[-0.01em] text-cream leading-none normal-case">CMD Careers</span>
+      <span class="font-mono text-[11px] tracking-[0.12em] uppercase text-fg-dim font-medium">Grade · edit · content lead</span>
+      <span class="font-mono text-[13px] tracking-[0.12em] uppercase text-fg-dim font-medium stat-text"><b class="text-red font-light text-[24px] font-display tracking-[0.02em] mr-[0.5em]">Top performers</b> on the channel</span>
+      <span class="arrow w-11 h-11 border border-red rounded-full grid place-items-center text-red transition-all duration-200">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
           <path d="M3 11 L11 3 M5 3 H11 V9"/>
         </svg>
@@ -38,76 +38,26 @@
 </section>
 
 <style>
-.case-list { display: flex; flex-direction: column; }
-
 .case {
   display: grid;
   grid-template-columns: 44px 56px 1fr 1.1fr 1fr auto;
   gap: 24px;
   align-items: center;
   padding: 24px 0;
-  border-top: 1px solid rgba(246,233,201,0.12);
+  border-top: 1px solid var(--color-rule);
   cursor: pointer;
   transition: padding 0.3s, background 0.3s;
 }
-.case:last-child { border-bottom: 1px solid rgba(246,233,201,0.12); }
-.case:hover {
-  padding-left: 16px; padding-right: 16px;
-  background: rgba(252,175,23,0.06);
-}
-.case:hover .arrow { background: #fcaf17; color: #120905; transform: rotate(-45deg); }
+.case:last-child { border-bottom: 1px solid var(--color-rule); }
+.case:hover { padding-left: 16px; padding-right: 16px; background: rgba(252,175,23,0.06); }
+.case:hover .arrow { background: var(--color-yellow); color: var(--color-ink); transform: rotate(-45deg); }
 
-.idx { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 12px; color: #766652; letter-spacing: 0.14em; font-weight: 500; }
-
-.client-mark {
-  width: 56px; height: 56px;
-  border: 1.5px solid rgba(246,233,201,0.32);
-  background: #1d1109;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-  color: #fcaf17;
-  font-family: "Alfa Slab One", "Times New Roman", serif;
-  font-size: 18px;
-  text-shadow: 0 0.06em 0 #961e10;
-  letter-spacing: 0; line-height: 1; padding: 0 4px;
-}
-.client-mark.tight { font-size: 13px; letter-spacing: 0.02em; }
-
-.client-name {
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(22px, 2.2vw, 32px);
-  letter-spacing: -0.01em;
-  color: #f6e9c9;
-  text-transform: none;
-  line-height: 1;
-}
-.role, .stat {
-  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: #b9a88a; font-weight: 500;
-}
-.stat { font-size: 13px; }
-.stat b {
-  color: #961e10; font-weight: 300; font-size: 24px;
-  font-family: "Alfa Slab One", "Times New Roman", serif;
-  letter-spacing: 0.02em; text-shadow: none; margin-right: 0.5em;
-}
-.curr { margin-right: 0.2em; }
-
-.arrow {
-  width: 44px; height: 44px;
-  border: 1px solid #961e10;
-  border-radius: 999px;
-  display: grid; place-items: center;
-  color: #961e10;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-}
+.client-name { font-size: clamp(22px, 2.2vw, 32px); }
 
 @media (max-width: 860px) {
   .case { grid-template-columns: 40px 48px 1fr auto; gap: 14px; }
-  .role, .stat { display: none; }
-  .client-mark { width: 48px; height: 48px; }
+  .stat-text { display: none; }
+  .case span:nth-child(4) { display: none; }
+  .client-mark { width: 48px !important; height: 48px !important; }
 }
 </style>
