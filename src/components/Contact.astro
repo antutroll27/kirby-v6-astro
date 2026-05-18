@@ -1,10 +1,12 @@
 ---
 ---
-<section class="contact" id="contact">
-  <div class="contact-inner">
+<section class="contact border-t border-rule" id="contact">
+  <div class="grid gap-10">
     <div class="label reveal">§ 07 / Book it</div>
-    <h2 class="big-cta reveal">
-      <a href="https://www.upwork.com/freelancers/~01507e9897388a0aed?mp_source=share" target="_blank" rel="noopener noreferrer">
+    <h2 class="big-cta font-display leading-none tracking-[0.005em] uppercase m-0 text-yellow reveal">
+      <a class="block leading-none transition-transform duration-200"
+         href="https://www.upwork.com/freelancers/~01507e9897388a0aed?mp_source=share"
+         target="_blank" rel="noopener noreferrer">
         Make it <span class="italic-serif">look</span><br />like film →
       </a>
     </h2>
@@ -18,36 +20,24 @@
 </section>
 
 <style>
-.contact {
-  padding: clamp(48px, 7vh, 90px) clamp(20px, 4vw, 64px) clamp(40px, 6vh, 80px);
-  border-top: 1px solid rgba(246,233,201,0.12);
-}
-.contact-inner { display: grid; gap: 40px; }
+.contact { padding: clamp(48px, 7vh, 90px) clamp(20px, 4vw, 64px) clamp(40px, 6vh, 80px); }
 
-.big-cta {
-  font-family: "Alfa Slab One", "Times New Roman", serif;
-  font-size: clamp(56px, 12vw, 200px);
-  line-height: 1;
-  letter-spacing: 0.005em;
-  text-transform: uppercase;
-  margin: 0;
-  color: #fcaf17;
-  text-shadow: 0 0.08em 0 #961e10;
-}
-.big-cta a { display: block; transition: transform 0.2s; line-height: 1; }
+.big-cta { font-size: clamp(56px, 12vw, 200px); text-shadow: 0 0.08em 0 var(--color-red); }
 .big-cta a:hover { transform: translate(-4px, -4px); }
 
 .contact-meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  border-top: 1px solid rgba(246,233,201,0.12);
+  border-top: 1px solid var(--color-rule);
   padding-top: 30px;
-  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #f6e9c9;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-cream);
 }
-.contact-meta b { display: block; color: #961e10; font-weight: 500; margin-bottom: 8px; font-size: 10px; }
-.contact-meta a:hover { color: #fcaf17; }
+.contact-meta b { display: block; color: var(--color-red); font-weight: 500; margin-bottom: 8px; font-size: 10px; }
+.contact-meta a:hover { color: var(--color-yellow); }
 @media (max-width: 720px) { .contact-meta { grid-template-columns: 1fr; } }
 </style>
