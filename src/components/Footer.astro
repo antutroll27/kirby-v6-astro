@@ -1,27 +1,12 @@
 ---
 ---
-<footer>
-  <span class="mark">KIRBY</span>
+<footer class="flex justify-between flex-wrap gap-5 font-mono text-[11px] tracking-[0.1em] uppercase text-fg-mute border-t border-rule">
+  <span class="mark font-display text-sm text-yellow tracking-[0.02em] uppercase">KIRBY</span>
   <span>© 2026 · jameskirbynostalgia.com</span>
   <span>Available on Upwork · Chiang Mai → Worldwide</span>
 </footer>
 
 <style>
-footer {
-  padding: 24px clamp(20px, 4vw, 64px);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #766652;
-  border-top: 1px solid rgba(246,233,201,0.12);
-}
-.mark {
-  font-family: "Alfa Slab One", "Times New Roman", serif;
-  font-size: 14px; color: #fcaf17;
-  letter-spacing: 0.02em; text-transform: uppercase;
-  text-shadow: 0 0.06em 0 #961e10;
-}
+footer { padding: 24px clamp(20px, 4vw, 64px); }
+.mark  { text-shadow: 0 0.06em 0 var(--color-red); }
 </style>
