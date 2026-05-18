@@ -1,69 +1,35 @@
 ---
 ---
-<section class="section-pad about-section" id="about">
-  <div class="about">
-    <div class="portrait reveal">
-      <span class="tag-lr">35MM · PORTRAIT</span>
-      <span class="ph-label">[PHOTO / JAMES — CHIANG MAI]</span>
+<section class="section-pad bg-ink-2 border-y border-rule" id="about">
+  <div class="about grid gap-[60px] items-start">
+    <div class="portrait aspect-[4/5] border-2 border-yellow relative overflow-hidden reveal">
+      <span class="absolute top-4 right-4 font-mono text-[10px] tracking-[0.16em] uppercase text-yellow">35MM · PORTRAIT</span>
+      <span class="absolute bottom-4 left-4 font-mono text-[10px] tracking-[0.16em] uppercase text-fg-mute">[PHOTO / JAMES — CHIANG MAI]</span>
     </div>
-    <div class="about-copy reveal">
+    <div class="reveal">
       <div class="label">§ 06 / About</div>
-      <h2>Raised on <span class="italic-serif">Kodak</span>.<br />Built for frames<br />that move.</h2>
-      <p>I'm James. A content creator who also colour grades the videos I make at CMD Careers. Half-Thai, half-British. Twenty-two. Based in Chiang Mai.</p>
-      <p class="about-p2">On the side I run KIRBY, a small product line of film emulation LUTs and PowerGrades used by creators and studios in 20+ countries. Everything is built on Kodak Vision3 colour science and finished in DaVinci Resolve. If your brand deserves better frames, book me on Upwork.</p>
+      <h2 class="about-h2 font-display leading-none mt-4 mb-7 uppercase text-yellow">Raised on <span class="italic-serif">Kodak</span>.<br />Built for frames<br />that move.</h2>
+      <p class="about-p text-fg-dim leading-[1.55] text-pretty max-w-[52ch]">I'm James. A content creator who also colour grades the videos I make at CMD Careers. Half-Thai, half-British. Twenty-two. Based in Chiang Mai.</p>
+      <p class="about-p2 font-serif italic font-normal text-fg-dim max-w-[54ch] leading-[1.5] mt-[18px] text-pretty">On the side I run KIRBY, a small product line of film emulation LUTs and PowerGrades used by creators and studios in 20+ countries. Everything is built on Kodak Vision3 colour science and finished in DaVinci Resolve. If your brand deserves better frames, book me on Upwork.</p>
     </div>
   </div>
 </section>
 
 <style>
-.about-section {
-  background: #1d1109;
-  border-top: 1px solid rgba(246,233,201,0.12);
-  border-bottom: 1px solid rgba(246,233,201,0.12);
-}
-.about { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+.about { grid-template-columns: 1fr 1.2fr; }
 @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
 
 .portrait {
-  aspect-ratio: 4/5;
   background: linear-gradient(160deg, #3a1a0a 0%, #1a0d05 100%);
-  border: 2px solid #fcaf17;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 10px 10px 0 #961e10;
+  box-shadow: 10px 10px 0 var(--color-red);
 }
 .portrait::before {
   content: "";
   position: absolute; inset: 0;
   background: repeating-linear-gradient(45deg, rgba(252,175,23,0.05) 0 10px, transparent 10px 22px);
 }
-.ph-label { position: absolute; bottom: 16px; left: 16px; font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #766652; }
-.tag-lr   { position: absolute; top: 16px; right: 16px;  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #fcaf17; }
 
-.about-copy h2 {
-  font-family: "Alfa Slab One", "Times New Roman", serif;
-  font-size: clamp(44px, 6vw, 80px);
-  line-height: 1;
-  margin: 16px 0 28px;
-  text-transform: uppercase;
-  color: #fcaf17;
-  text-shadow: 0 0.08em 0 #961e10;
-}
-.about-copy p {
-  font-size: clamp(16px, 1.2vw, 19px);
-  color: #b9a88a;
-  line-height: 1.55;
-  text-wrap: pretty;
-  max-width: 52ch;
-}
-.about-p2 {
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(18px, 1.4vw, 22px);
-  color: #b9a88a;
-  max-width: 54ch;
-  line-height: 1.5;
-  margin-top: 18px;
-}
+.about-h2 { font-size: clamp(44px, 6vw, 80px); text-shadow: 0 0.08em 0 var(--color-red); }
+.about-p  { font-size: clamp(16px, 1.2vw, 19px); }
+.about-p2 { font-size: clamp(18px, 1.4vw, 22px); }
 </style>
