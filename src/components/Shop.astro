@@ -6,34 +6,43 @@ const products = [
 ];
 ---
 <section class="section-pad" id="shop">
-  <div class="shop-wrap">
-    <div class="shop-head reveal">
-      <div class="shop-left">
+  <div class="grid gap-8">
+    <div class="shop-head grid gap-12 items-end pb-6 border-b border-rule reveal">
+      <div class="flex flex-col gap-3 min-w-0">
         <div class="label">§ 05 / Shop</div>
-        <h3 class="shop-lockup">
-          <span class="line">KIRBY</span>
-          <span class="line line-small">NOSTALGIA VOL. 01</span>
+        <h3 class="shop-lockup font-display uppercase text-yellow m-0 block w-max max-w-full">
+          <span class="line block leading-[0.88] w-max max-w-full">KIRBY</span>
+          <span class="line-small block leading-none whitespace-nowrap">NOSTALGIA VOL. 01</span>
         </h3>
       </div>
-      <div class="shop-intro">
-        <p>Film emulation LUTs &amp; PowerGrades built on real Kodak Vision3 ARRISCAN scans. Drop in. Get the look.</p>
-        <p>Each pack ships with DaVinci Resolve PowerGrades, 33-point .cube LUTs, and a halation + grain node tree. Used by creators and studios in 20+ countries.</p>
-        <a class="shop-cta" href="https://jameskirbynostalgia.gumroad.com/" target="_blank" rel="noopener noreferrer">Shop all →</a>
+      <div class="flex flex-col gap-2.5 min-w-0">
+        <p class="text-fg-dim max-w-[52ch] text-pretty m-0 text-[15px] leading-[1.5]">Film emulation LUTs &amp; PowerGrades built on real Kodak Vision3 ARRISCAN scans. Drop in. Get the look.</p>
+        <p class="text-fg-dim max-w-[52ch] text-pretty m-0 text-[15px] leading-[1.5]">Each pack ships with DaVinci Resolve PowerGrades, 33-point .cube LUTs, and a halation + grain node tree. Used by creators and studios in 20+ countries.</p>
+        <a class="shop-cta self-start inline-flex items-center gap-2.5 mt-2 px-5 py-3 bg-yellow text-ink border-2 border-red font-mono text-xs tracking-[0.14em] uppercase font-medium transition-transform duration-200"
+           href="https://jameskirbynostalgia.gumroad.com/" target="_blank" rel="noopener noreferrer">
+          Shop all →
+        </a>
       </div>
     </div>
 
-    <div class="products reveal">
+    <div class="products grid grid-cols-3 gap-4 items-stretch reveal">
       {products.map((p) => (
-        <a class="product" href="https://jameskirbynostalgia.gumroad.com/" target="_blank" rel="noopener noreferrer">
-          <div class="cover">
-            <div class="ph" style={`background: ${p.gradient};`}></div>
-            <div class="brand">KIRBY</div>
-            <div class="lot-bar"><span>{p.lot}</span><span>{p.stock}</span></div>
+        <a class="product border border-rule bg-ink-2 flex flex-col transition-transform duration-300 min-w-0 w-full hover:-translate-y-1 hover:border-yellow"
+           href="https://jameskirbynostalgia.gumroad.com/" target="_blank" rel="noopener noreferrer">
+          <div class="aspect-[4/5] relative overflow-hidden shrink-0">
+            <div class="absolute inset-0" style={`background: ${p.gradient};`}></div>
+            <div class="absolute top-3.5 left-3.5 font-display text-[22px] text-yellow leading-none prod-brand-shadow">KIRBY</div>
+            <div class="absolute bottom-3.5 left-3.5 right-3.5 flex justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-cream">
+              <span>{p.lot}</span><span>{p.stock}</span>
+            </div>
           </div>
-          <div class="body">
-            <div class="prod-title">{p.title}</div>
-            <p class="desc">{p.desc}</p>
-            <div class="price-row"><span class="price">{p.price}</span><span class="buy">Buy →</span></div>
+          <div class="p-5 flex flex-col gap-3.5 border-t border-rule grow">
+            <div class="font-display text-[22px] leading-none uppercase text-yellow min-h-[22px] prod-title-shadow">{p.title}</div>
+            <p class="text-fg-dim text-[13px] m-0 text-pretty leading-[1.5] grow">{p.desc}</p>
+            <div class="flex justify-between items-center pt-3.5 border-t border-dashed border-rule font-mono text-xs tracking-[0.08em] uppercase mt-auto">
+              <span class="text-yellow font-medium">{p.price}</span>
+              <span class="text-cream buy-text">Buy →</span>
+            </div>
           </div>
         </a>
       ))}
@@ -63,74 +72,19 @@ const products = [
 </script>
 
 <style>
-.shop-wrap { display: grid; grid-template-columns: 1fr; gap: 32px; }
-
-.shop-head {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 48px;
-  align-items: end;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(246,233,201,0.12);
-}
-.shop-head > div { min-width: 0; }
-.shop-left { display: flex; flex-direction: column; gap: 12px; }
+.shop-head { grid-template-columns: 1.1fr 1fr; }
 @media (max-width: 820px) { .shop-head { grid-template-columns: 1fr; gap: 24px; align-items: start; } }
 
-.shop-lockup {
-  font-family: "Alfa Slab One", "Times New Roman", serif;
-  font-size: clamp(64px, 8.5vw, 120px);
-  line-height: 0.88;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: #fcaf17;
-  text-shadow: 0 0.08em 0 #961e10;
-  margin: 0;
-  display: block;
-  width: max-content;
-  max-width: 100%;
-}
-.line { display: block; line-height: 0.88; width: max-content; max-width: 100%; }
-.line-small { font-size: 0.53em; letter-spacing: 0.005em; transform-origin: left top; white-space: nowrap; display: block; line-height: 1; }
+.shop-lockup { font-size: clamp(64px, 8.5vw, 120px); line-height: 0.88; text-shadow: 0 0.08em 0 var(--color-red); }
+.line-small   { font-size: 0.53em; letter-spacing: 0.005em; transform-origin: left top; }
 
-.shop-intro { display: flex; flex-direction: column; gap: 10px; }
-.shop-intro p { color: #b9a88a; max-width: 52ch; text-wrap: pretty; margin: 0; font-size: 15px; line-height: 1.5; }
-.shop-cta {
-  margin-top: 8px;
-  align-self: flex-start;
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 12px 20px;
-  background: #fcaf17; color: #120905;
-  border: 2px solid #961e10;
-  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
-  transition: transform 0.2s;
-}
-.shop-cta:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 #961e10; }
+.shop-cta:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--color-red); }
 
-.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.prod-brand-shadow { text-shadow: 0 0.06em 0 var(--color-red); }
+.prod-title-shadow  { text-shadow: 0 0.06em 0 var(--color-red); }
+
+.product:hover .buy-text { color: var(--color-yellow); }
+
 @media (max-width: 900px) { .products { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 540px)  { .products { grid-template-columns: 1fr; } }
-
-.product {
-  border: 1px solid rgba(246,233,201,0.12);
-  background: #1d1109;
-  display: flex; flex-direction: column;
-  transition: transform 0.3s, border-color 0.3s;
-  min-width: 0; width: 100%;
-}
-.product:hover { transform: translateY(-4px); border-color: #fcaf17; }
-.product:hover .buy { color: #fcaf17; }
-
-.cover { aspect-ratio: 4/5; position: relative; overflow: hidden; flex: 0 0 auto; }
-.ph { position: absolute; inset: 0; }
-.brand { position: absolute; top: 14px; left: 14px; font-family: "Alfa Slab One", "Times New Roman", serif; font-size: 22px; color: #fcaf17; text-shadow: 0 0.06em 0 #961e10; line-height: 1; }
-.lot-bar { position: absolute; bottom: 14px; left: 14px; right: 14px; display: flex; justify-content: space-between; font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #f6e9c9; }
-
-.body { padding: 20px; display: flex; flex-direction: column; gap: 14px; border-top: 1px solid rgba(246,233,201,0.12); flex: 1 1 auto; }
-.prod-title { font-family: "Alfa Slab One", "Times New Roman", serif; font-size: 22px; line-height: 1; text-transform: uppercase; color: #fcaf17; text-shadow: 0 0.06em 0 #961e10; min-height: 22px; }
-.desc { color: #b9a88a; font-size: 13px; margin: 0; text-wrap: pretty; line-height: 1.5; flex: 1 1 auto; }
-.price-row { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px dashed rgba(246,233,201,0.12); font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: auto; }
-.price { color: #fcaf17; font-weight: 500; }
-.buy { color: #f6e9c9; }
 </style>
