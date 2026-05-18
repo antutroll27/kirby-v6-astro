@@ -1,0 +1,144 @@
+---
+---
+<section class="section-pad vsl-section" id="vsl">
+  <div class="vsl reveal">
+    <div class="vsl-frame">
+      <div class="yt-facade" data-id="LthQSsJXFpA" data-title="James Kirby — Video Editor &amp; Colourist showreel" role="button" tabindex="0" aria-label="Play showreel video">
+        <img src="https://img.youtube.com/vi/LthQSsJXFpA/maxresdefault.jpg" alt="James Kirby showreel" width="1280" height="720" />
+        <span class="yt-play" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="vsl-copy">
+      <div class="label">§ 02 / Editing &amp; colour for creators</div>
+      <h2>I edit &amp; <span class="italic-serif">colour grade</span> your videos.</h2>
+      <div class="pitch">
+        <p>Cinematic or corporate. Hollywood-grade plugins, custom LUTs &amp; PowerGrades built from real film stocks.</p>
+        <p>4–5 day turnaround. DM me or CMD Careers.</p>
+      </div>
+      <div class="vsl-pricing">
+        <div class="pr"><b>$25</b>per reel</div>
+        <div class="pr"><b>$100</b>per month, consistent</div>
+      </div>
+      <div class="vsl-foot">
+        Price rises to $35 / $140 after the first 5 clients ·
+        <a href="https://www.linkedin.com/in/jameskirbymain/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.yt-facade').forEach(el => {
+    function activate() {
+      const id = (el as HTMLElement).dataset.id!;
+      const title = (el as HTMLElement).dataset.title || 'Video';
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.title = title;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      el.replaceWith(iframe);
+    }
+    el.addEventListener('click', activate);
+    el.addEventListener('keydown', (e) => {
+      const ke = e as KeyboardEvent;
+      if (ke.key === 'Enter' || ke.key === ' ') activate();
+    });
+  });
+</script>
+
+<style>
+.vsl-section {
+  background: #1d1109;
+  border-top: 1px solid rgba(246,233,201,0.12);
+  border-bottom: 1px solid rgba(246,233,201,0.12);
+}
+.vsl {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 900px) { .vsl { grid-template-columns: 1fr; } }
+
+.vsl-frame {
+  position: relative;
+  aspect-ratio: 16/9;
+  border: 2px solid #961e10;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 10px 10px 0 #961e10;
+}
+.vsl-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.yt-facade { position: absolute; inset: 0; cursor: pointer; }
+.yt-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.yt-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px; height: 48px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.72);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.yt-play::after { content: '▶'; font-size: 22px; color: #fff; padding-left: 4px; }
+.yt-facade:hover .yt-play,
+.yt-facade:focus .yt-play { background: #961e10; outline: none; }
+
+.vsl-copy h2 {
+  font-family: "Alfa Slab One", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 12px 0 20px;
+  text-transform: uppercase;
+  color: #fcaf17;
+  text-shadow: 0 0.08em 0 #961e10;
+}
+.pitch {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #b9a88a;
+  font-size: 19px;
+  max-width: 42ch;
+  text-wrap: pretty;
+  line-height: 1.45;
+}
+.pitch p { margin: 0 0 14px; }
+
+.vsl-pricing {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid rgba(246,233,201,0.12);
+  padding-top: 20px;
+}
+.pr {
+  border: 1px solid rgba(246,233,201,0.32);
+  padding: 14px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #b9a88a;
+}
+.pr b {
+  display: block;
+  color: #fcaf17;
+  font-weight: 500;
+  font-family: "Alfa Slab One", "Times New Roman", serif;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+  text-shadow: 0 0.06em 0 #961e10;
+}
+.vsl-foot {
+  margin-top: 20px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #766652;
+}
+.vsl-foot a { color: #fcaf17; border-bottom: 1px solid #fcaf17; }
+</style>

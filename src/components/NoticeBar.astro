@@ -1,0 +1,50 @@
+---
+---
+<div class="notice" aria-label="Shop promo">
+  <div class="n-marquee">
+    <span>KIRBY LUTs on Gumroad</span><span>◉</span>
+    <span class="em">Film emulation that ships</span><span>◉</span>
+    <span>KIRBY LUTs on Gumroad</span><span>◉</span>
+    <span class="em">Film emulation that ships</span><span>◉</span>
+    <span>KIRBY LUTs on Gumroad</span><span>◉</span>
+    <span class="em">Film emulation that ships</span><span>◉</span>
+    <span>KIRBY LUTs on Gumroad</span><span>◉</span>
+    <span class="em">Film emulation that ships</span><span>◉</span>
+  </div>
+</div>
+
+<style>
+.notice {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
+  height: 32px;
+  background: #fcaf17;
+  color: #961e10;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 2px solid #961e10;
+  overflow: hidden;
+}
+.n-marquee {
+  display: flex;
+  gap: 40px;
+  white-space: nowrap;
+  width: max-content;
+  padding-left: 40px;
+  animation: notice 60s linear infinite;
+  height: 100%;
+  align-items: center;
+}
+.em {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+</style>

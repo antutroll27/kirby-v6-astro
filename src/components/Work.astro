@@ -1,0 +1,78 @@
+---
+const reels = [
+  { href: "https://www.instagram.com/p/DU_y7hdkyrA/", src: "https://www.instagram.com/p/DU_y7hdkyrA/embed/?rd=https%3A%2F%2Fwww.instagram.com", title: "Personal short film — colour grade, Chiang Mai", label: "01 · Personal" },
+  { href: "https://www.instagram.com/p/DUw9EgzEhbW/", src: "https://www.instagram.com/p/DUw9EgzEhbW/embed/", title: "Personal reel — colour grade", label: "02 · Personal" },
+  { href: "https://www.instagram.com/p/DUsZhleksWo/", src: "https://www.instagram.com/p/DUsZhleksWo/embed/", title: "Personal reel — colour grade", label: "03 · Personal" },
+  { href: "https://www.instagram.com/reel/DWqm7ZhEQyu/", src: "https://www.instagram.com/reel/DWqm7ZhEQyu/embed/", title: "CMD Careers — short-form content reel", label: "04 · CMD Careers" },
+  { href: "https://www.instagram.com/reel/DTK_xIYCNiS/", src: "https://www.instagram.com/reel/DTK_xIYCNiS/embed/", title: "CMD Careers — short-form reel", label: "05 · CMD Careers" },
+  { href: "https://www.instagram.com/p/DUlKvP1knrD/", src: "https://www.instagram.com/p/DUlKvP1knrD/embed/", title: "Cassie Schoonover — colour grade", label: "06 · Cassie Schoonover" },
+  { href: "https://www.instagram.com/p/DU0xfx8En9M/", src: "https://www.instagram.com/p/DU0xfx8En9M/embed/", title: "Cassie Schoonover — reel", label: "07 · Cassie Schoonover" },
+  { href: "https://www.instagram.com/reel/DSzgejCjeM-/", src: "https://www.instagram.com/reel/DSzgejCjeM-/embed/", title: "CMD Careers — short-form reel", label: "08 · CMD Careers" },
+];
+---
+<section class="section-pad" id="work">
+  <div class="section-head reveal">
+    <div>
+      <div class="label">§ 01 / Selected work</div>
+      <h2>The <span class="italic-serif">work</span>.</h2>
+    </div>
+    <p>Recent reels, grades and shorts — mine, CMD Careers', and clients'. All graded in DaVinci Resolve on custom KIRBY PowerGrades, Kodak Vision3 underneath.</p>
+  </div>
+
+  <div class="reel">
+    {reels.map((r) => (
+      <a class="tile reel-v reveal" href={r.href} target="_blank" rel="noopener noreferrer">
+        <div class="crop">
+          <iframe
+            title={r.title}
+            src={r.src}
+            loading="lazy"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
+        <span class="corner-tag">{r.label}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+.reel {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.tile {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  border: 1px solid rgba(246,233,201,0.12);
+  aspect-ratio: 9/16;
+  transition: transform 0.35s ease, border-color 0.25s;
+}
+.tile:hover { transform: translateY(-4px); border-color: #fcaf17; }
+.reel-v { grid-column: span 3; }
+@media (max-width: 900px) { .reel-v { grid-column: span 6; } }
+@media (max-width: 540px)  { .reel-v { grid-column: span 12; aspect-ratio: 16/10; } }
+
+.crop { position: absolute; inset: 0; overflow: hidden; }
+.crop iframe {
+  position: absolute;
+  top: -60px; left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 180px);
+  border: 0;
+  background: #000;
+}
+.corner-tag {
+  position: absolute; top: 10px; left: 10px;
+  z-index: 3;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #fcaf17;
+  background: rgba(18,9,5,0.7);
+  padding: 4px 8px;
+  pointer-events: none;
+}
+</style>

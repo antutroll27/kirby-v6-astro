@@ -1,0 +1,143 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "James Kirby — Video Editor & Colourist · Chiang Mai",
+  description = "James Kirby — freelance video editor and colourist based in Chiang Mai. Colour grading, short-form content, and KIRBY film emulation LUTs used in 20+ countries. 4–5 day turnaround.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large" />
+  <link rel="canonical" href="https://jameskirbynostalgia.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jameskirbynostalgia.com/" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content="Freelance video editor and colourist. Colour grading, short-form content, and KIRBY film emulation LUTs used in 20+ countries." />
+  <meta property="og:image" content="https://jameskirbynostalgia.com/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content="Freelance video editor and colourist. Colour grading, short-form content, and KIRBY film emulation LUTs used in 20+ countries." />
+  <meta name="twitter:image" content="https://jameskirbynostalgia.com/og-image.jpg" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <script is:inline type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "James Kirby",
+    "jobTitle": "Video Editor & Colourist",
+    "url": "https://jameskirbynostalgia.com",
+    "sameAs": [
+      "https://www.upwork.com/freelancers/~01507e9897388a0aed",
+      "https://www.linkedin.com/in/jameskirbymain/",
+      "https://instagram.com/jameskirbynostalgia"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chiang Mai",
+      "addressCountry": "TH"
+    }
+  }
+  </script>
+
+  <script is:inline type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "KIRBY LUT Packs",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "KIRBY Nostalgia Pack",
+          "description": "12 LUTs. Warm sun-faded Kodak look across multiple stocks.",
+          "brand": { "@type": "Brand", "name": "KIRBY" },
+          "offers": {
+            "@type": "Offer",
+            "price": "49",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://jameskirbynostalgia.gumroad.com/"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "KIRBY Cold Halation",
+          "description": "Tungsten PowerGrade. Halation + bloom baked in for low light.",
+          "brand": { "@type": "Brand", "name": "KIRBY" },
+          "offers": {
+            "@type": "Offer",
+            "price": "59",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://jameskirbynostalgia.gumroad.com/"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "KIRBY Golden 50D",
+          "description": "Bright daylight stock. Amber highlights, honest skin tones.",
+          "brand": { "@type": "Brand", "name": "KIRBY" },
+          "offers": {
+            "@type": "Offer",
+            "price": "39",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://jameskirbynostalgia.gumroad.com/"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <slot />
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

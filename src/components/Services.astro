@@ -1,0 +1,67 @@
+---
+---
+<section class="section-pad services-section" id="services">
+  <div class="section-head reveal">
+    <div>
+      <div class="label">§ 04 / Services</div>
+      <h2>What I <span class="italic-serif">do</span>.</h2>
+    </div>
+    <p>Two lanes, kept narrow. Project-based or monthly retainer. Delivery in DaVinci Resolve on custom KIRBY PowerGrades.</p>
+  </div>
+
+  <div class="services reveal">
+    <div class="service">
+      <span class="num">/ 01 — COLOUR</span>
+      <div>
+        <h3>Colour grade</h3>
+        <p>Commercial, short-form, music videos, course content. Log → final look. Node trees shared, revisions until it feels right. Halation, grain and bloom baked in when the frame wants it.</p>
+      </div>
+    </div>
+    <div class="service">
+      <span class="num">/ 02 — SHORT-FORM</span>
+      <div>
+        <h3>Short-form content</h3>
+        <p>End-to-end reels, TikToks and Shorts for founders, creators and brands. Hook, edit, grade, delivery. I run the content engine at CMD Careers and know how to make shorts land.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.services-section {
+  background: #1d1109;
+  border-top: 1px solid rgba(246,233,201,0.12);
+  border-bottom: 1px solid rgba(246,233,201,0.12);
+}
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(246,233,201,0.12);
+  border: 1px solid rgba(246,233,201,0.12);
+}
+@media (max-width: 720px) { .services { grid-template-columns: 1fr; } }
+
+.service {
+  background: #1d1109;
+  padding: 40px 32px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s;
+}
+.service:hover { background: #120905; }
+.num { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; color: #fcaf17; }
+.service h3 {
+  font-family: "Alfa Slab One", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 0.95;
+  margin: 40px 0 14px;
+  text-transform: uppercase;
+  color: #fcaf17;
+  text-shadow: 0 0.08em 0 #961e10;
+}
+.service p { font-size: 15px; line-height: 1.55; color: #b9a88a; margin: 0; text-wrap: pretty; max-width: 44ch; }
+</style>

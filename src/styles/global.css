@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yellow:       #fcaf17;
+  --color-red:          #961e10;
+  --color-red-dark:     #6a1509;
+  --color-cream:        #f6e9c9;
+  --color-ink:          #120905;
+  --color-ink-2:        #1d1109;
+  --color-fg-dim:       #b9a88a;
+  --color-fg-mute:      #766652;
+
+  --font-display: "Alfa Slab One", "Times New Roman", serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes notice {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Global resets ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #120905;
+  color: #f6e9c9;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+::selection { background: #fcaf17; color: #120905; }
+
+/* ── Film grain overlay ────────────────────────────────────── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.98  0 0 0 0 0.7  0 0 0 0 0.1  0 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* ── Reveal animation ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Accessibility ─────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #fcaf17;
+  color: #120905;
+  padding: 10px 16px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 9999;
+  font-weight: 500;
+  border: 2px solid #961e10;
+}
+.skip-link:focus { top: 0; }
+
+/* ── Shared section primitives ─────────────────────────────── */
+.section-pad { padding: clamp(56px, 8vh, 110px) clamp(20px, 4vw, 64px); }
+
+.label {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fcaf17;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.label::before { content: ""; width: 28px; height: 2px; background: #fcaf17; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 36px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(246,233,201,0.12);
+}
+.section-head h2 {
+  font-family: "Alfa Slab One", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  margin: 16px 0 0;
+  text-transform: uppercase;
+  color: #fcaf17;
+  text-shadow: 0 0.08em 0 #961e10;
+}
+.section-head p {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.5vw, 24px);
+  color: #b9a88a;
+  max-width: 54ch;
+  text-wrap: pretty;
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+@media (max-width: 860px) { .section-head { grid-template-columns: 1fr; gap: 20px; } }
+
+/* ── Italic serif utility ──────────────────────────────────── */
+.italic-serif {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: #961e10;
+  text-shadow: none;
+  text-transform: none;
+}

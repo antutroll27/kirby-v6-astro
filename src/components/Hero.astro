@@ -1,0 +1,121 @@
+---
+---
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">James</p>
+      <h1 class="hero-title">KIRBY<span class="sr-only"> — Video Editor &amp; Colourist, Chiang Mai</span></h1>
+      <p class="hero-sub"><b>Content creator</b> · Video editor · Colourist</p>
+    </div>
+    <div class="hero-portrait">
+      <span class="frame-tag">FRAME 01</span>
+      <span class="ph-label">[PHOTO / JAMES]</span>
+      <span class="frame-no">35MM</span>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div>Chiang Mai · Worldwide · 2026</div>
+    <div class="scroll">↓ The work</div>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: calc(32px + 49px + 48px) clamp(20px, 4vw, 64px) 5vh;
+  overflow: hidden;
+  background: radial-gradient(120% 80% at 50% 35%, #3a1a0a 0%, #1a0d05 55%, #0a0503 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(0,0,0,0.12) 3px 4px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  flex: 1 0 auto;
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 380px);
+  gap: 48px;
+  align-items: center;
+  padding-top: 24px;
+}
+@media (max-width: 1024px) { .hero-inner { grid-template-columns: 1fr minmax(220px, 320px); gap: 32px; } }
+@media (max-width: 760px)  { .hero-inner { grid-template-columns: 1fr; } }
+
+.hero-eyebrow {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #fcaf17;
+  font-size: clamp(80px, 13vw, 225px);
+  margin: 0 0 -0.04em;
+  text-shadow: 0 0.06em 0 #961e10;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.hero-title {
+  font-family: "Alfa Slab One", "Times New Roman", serif;
+  color: #fcaf17;
+  font-size: clamp(88px, 15vw, 245px);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0.08em 0 #961e10;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.hero-sub {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: clamp(11px, 1vw, 14px);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fcaf17;
+  margin: 18px 0 0;
+}
+.hero-sub b { color: #fcaf17; font-weight: 500; }
+
+.hero-portrait {
+  aspect-ratio: 4/5;
+  border: 2px solid #fcaf17;
+  background: linear-gradient(160deg, #3a1a0a 0%, #1a0d05 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 #961e10;
+  max-width: 100%;
+}
+.hero-portrait::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, rgba(252,175,23,0.05) 0 10px, transparent 10px 22px);
+}
+.frame-tag, .ph-label, .frame-no {
+  position: absolute;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.frame-tag  { top: 12px; left: 12px; color: #fcaf17; }
+.ph-label   { bottom: 12px; left: 12px; color: #766652; }
+.frame-no   { bottom: 12px; right: 12px; color: #766652; }
+
+.hero-bottom {
+  position: relative; z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(246,233,201,0.12);
+  padding-top: 20px;
+  margin-top: 40px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #b9a88a;
+}
+.scroll { color: #fcaf17; }
+</style>

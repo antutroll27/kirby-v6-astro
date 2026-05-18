@@ -1,0 +1,136 @@
+---
+const products = [
+  { lot: "LOT 01", stock: "V3·250D", title: "Nostalgia Pack",  desc: "12 LUTs. Warm sun-faded Kodak look across multiple stocks.",         price: "$49", gradient: "linear-gradient(135deg, #3b1f0d 0%, #6b3016 40%, #fcaf17 100%)" },
+  { lot: "LOT 02", stock: "V3·500T", title: "Cold Halation",   desc: "Tungsten PowerGrade. Halation + bloom baked in for low light.",      price: "$59", gradient: "linear-gradient(135deg, #0f1b22 0%, #1e3540 45%, #b8c4c2 100%)" },
+  { lot: "LOT 03", stock: "V3·50D",  title: "Golden 50D",      desc: "Bright daylight stock. Amber highlights, honest skin tones.",        price: "$39", gradient: "linear-gradient(135deg, #2a1a08 0%, #961e10 55%, #fcaf17 100%)" },
+];
+---
+<section class="section-pad" id="shop">
+  <div class="shop-wrap">
+    <div class="shop-head reveal">
+      <div class="shop-left">
+        <div class="label">§ 05 / Shop</div>
+        <h3 class="shop-lockup">
+          <span class="line">KIRBY</span>
+          <span class="line line-small">NOSTALGIA VOL. 01</span>
+        </h3>
+      </div>
+      <div class="shop-intro">
+        <p>Film emulation LUTs &amp; PowerGrades built on real Kodak Vision3 ARRISCAN scans. Drop in. Get the look.</p>
+        <p>Each pack ships with DaVinci Resolve PowerGrades, 33-point .cube LUTs, and a halation + grain node tree. Used by creators and studios in 20+ countries.</p>
+        <a class="shop-cta" href="https://jameskirbynostalgia.gumroad.com/" target="_blank" rel="noopener noreferrer">Shop all →</a>
+      </div>
+    </div>
+
+    <div class="products reveal">
+      {products.map((p) => (
+        <a class="product" href="https://jameskirbynostalgia.gumroad.com/" target="_blank" rel="noopener noreferrer">
+          <div class="cover">
+            <div class="ph" style={`background: ${p.gradient};`}></div>
+            <div class="brand">KIRBY</div>
+            <div class="lot-bar"><span>{p.lot}</span><span>{p.stock}</span></div>
+          </div>
+          <div class="body">
+            <div class="prod-title">{p.title}</div>
+            <p class="desc">{p.desc}</p>
+            <div class="price-row"><span class="price">{p.price}</span><span class="buy">Buy →</span></div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function fitShopLockup() {
+    document.querySelectorAll('.shop-lockup').forEach(lockup => {
+      const big = lockup.querySelector('.line:not(.line-small)') as HTMLElement | null;
+      const small = lockup.querySelector('.line-small') as HTMLElement | null;
+      if (!big || !small) return;
+      small.style.transform = 'scale(1)';
+      small.style.height = '';
+      const bigW = big.scrollWidth || big.getBoundingClientRect().width;
+      const smallW = small.scrollWidth || small.getBoundingClientRect().width;
+      if (smallW > 0 && bigW > 0) {
+        small.style.transform = `scale(${bigW / smallW})`;
+        small.style.height = small.getBoundingClientRect().height + 'px';
+      }
+    });
+  }
+  fitShopLockup();
+  window.addEventListener('resize', fitShopLockup);
+  if (document.fonts?.ready) document.fonts.ready.then(fitShopLockup);
+</script>
+
+<style>
+.shop-wrap { display: grid; grid-template-columns: 1fr; gap: 32px; }
+
+.shop-head {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(246,233,201,0.12);
+}
+.shop-head > div { min-width: 0; }
+.shop-left { display: flex; flex-direction: column; gap: 12px; }
+@media (max-width: 820px) { .shop-head { grid-template-columns: 1fr; gap: 24px; align-items: start; } }
+
+.shop-lockup {
+  font-family: "Alfa Slab One", "Times New Roman", serif;
+  font-size: clamp(64px, 8.5vw, 120px);
+  line-height: 0.88;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #fcaf17;
+  text-shadow: 0 0.08em 0 #961e10;
+  margin: 0;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+}
+.line { display: block; line-height: 0.88; width: max-content; max-width: 100%; }
+.line-small { font-size: 0.53em; letter-spacing: 0.005em; transform-origin: left top; white-space: nowrap; display: block; line-height: 1; }
+
+.shop-intro { display: flex; flex-direction: column; gap: 10px; }
+.shop-intro p { color: #b9a88a; max-width: 52ch; text-wrap: pretty; margin: 0; font-size: 15px; line-height: 1.5; }
+.shop-cta {
+  margin-top: 8px;
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px;
+  background: #fcaf17; color: #120905;
+  border: 2px solid #961e10;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+  transition: transform 0.2s;
+}
+.shop-cta:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 #961e10; }
+
+.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+@media (max-width: 900px) { .products { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px)  { .products { grid-template-columns: 1fr; } }
+
+.product {
+  border: 1px solid rgba(246,233,201,0.12);
+  background: #1d1109;
+  display: flex; flex-direction: column;
+  transition: transform 0.3s, border-color 0.3s;
+  min-width: 0; width: 100%;
+}
+.product:hover { transform: translateY(-4px); border-color: #fcaf17; }
+.product:hover .buy { color: #fcaf17; }
+
+.cover { aspect-ratio: 4/5; position: relative; overflow: hidden; flex: 0 0 auto; }
+.ph { position: absolute; inset: 0; }
+.brand { position: absolute; top: 14px; left: 14px; font-family: "Alfa Slab One", "Times New Roman", serif; font-size: 22px; color: #fcaf17; text-shadow: 0 0.06em 0 #961e10; line-height: 1; }
+.lot-bar { position: absolute; bottom: 14px; left: 14px; right: 14px; display: flex; justify-content: space-between; font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #f6e9c9; }
+
+.body { padding: 20px; display: flex; flex-direction: column; gap: 14px; border-top: 1px solid rgba(246,233,201,0.12); flex: 1 1 auto; }
+.prod-title { font-family: "Alfa Slab One", "Times New Roman", serif; font-size: 22px; line-height: 1; text-transform: uppercase; color: #fcaf17; text-shadow: 0 0.06em 0 #961e10; min-height: 22px; }
+.desc { color: #b9a88a; font-size: 13px; margin: 0; text-wrap: pretty; line-height: 1.5; flex: 1 1 auto; }
+.price-row { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px dashed rgba(246,233,201,0.12); font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: auto; }
+.price { color: #fcaf17; font-weight: 500; }
+.buy { color: #f6e9c9; }
+</style>
