@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import heroPortrait from '../assets/hero-portrait.jpg';
 ---
 <section class="hero relative overflow-hidden flex flex-col justify-end min-h-screen" id="top">
   <div class="hero-inner relative z-[2] grow shrink-0 grid gap-12 items-center pt-6">
@@ -8,9 +10,10 @@
       <p class="hero-sub font-mono tracking-[0.3em] uppercase text-yellow mt-[18px]"><b class="text-yellow font-medium">Content creator</b> · Video editor · Colourist</p>
     </div>
     <div class="hero-portrait aspect-[4/5] border-2 border-yellow relative overflow-hidden max-w-full">
-      <span class="absolute top-3 left-3 font-mono text-[9px] tracking-[0.2em] uppercase text-yellow">FRAME 01</span>
-      <span class="absolute bottom-3 left-3 font-mono text-[9px] tracking-[0.2em] uppercase text-fg-mute">[PHOTO / JAMES]</span>
-      <span class="absolute bottom-3 right-3 font-mono text-[9px] tracking-[0.2em] uppercase text-fg-mute">35MM</span>
+      <Image src={heroPortrait} alt="James Kirby" width={800} height={1000} class="absolute inset-0 w-full h-full object-cover object-top" loading="eager" />
+      <span class="absolute top-3 left-3 font-mono text-[9px] tracking-[0.2em] uppercase text-yellow z-[1]">FRAME 01</span>
+      <span class="absolute bottom-3 left-3 font-mono text-[9px] tracking-[0.2em] uppercase text-fg-mute z-[1]">[PHOTO / JAMES]</span>
+      <span class="absolute bottom-3 right-3 font-mono text-[9px] tracking-[0.2em] uppercase text-fg-mute z-[1]">35MM</span>
     </div>
   </div>
   <div class="relative z-[2] flex justify-between items-end border-t border-rule pt-5 mt-10 font-mono text-[11px] tracking-[0.14em] uppercase text-fg-dim">
@@ -40,12 +43,6 @@
 .hero-sub     { font-size: clamp(11px, 1vw, 14px); }
 
 .hero-portrait {
-  background: linear-gradient(160deg, #3a1a0a 0%, #1a0d05 100%);
   box-shadow: 8px 8px 0 var(--color-red);
-}
-.hero-portrait::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(45deg, rgba(252,175,23,0.05) 0 10px, transparent 10px 22px);
 }
 </style>
