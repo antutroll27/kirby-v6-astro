@@ -1,10 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import aboutPortrait from '../assets/about-portrait.jpg';
 ---
 <section class="section-pad bg-ink-2 border-y border-rule" id="about">
   <div class="about grid gap-[60px] items-start">
     <div class="portrait aspect-[4/5] border-2 border-yellow relative overflow-hidden reveal">
-      <span class="absolute top-4 right-4 font-mono text-[10px] tracking-[0.16em] uppercase text-yellow">35MM · PORTRAIT</span>
-      <span class="absolute bottom-4 left-4 font-mono text-[10px] tracking-[0.16em] uppercase text-fg-mute">[PHOTO / JAMES — CHIANG MAI]</span>
+      <Image src={aboutPortrait} alt="James Kirby — Chiang Mai" width={800} height={1000} class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
+      <span class="absolute top-4 right-4 font-mono text-[10px] tracking-[0.16em] uppercase text-yellow z-[1]">35MM · PORTRAIT</span>
+      <span class="absolute bottom-4 left-4 font-mono text-[10px] tracking-[0.16em] uppercase text-fg-mute z-[1]">[PHOTO / JAMES — CHIANG MAI]</span>
     </div>
     <div class="reveal">
       <div class="label">§ 06 / About</div>
@@ -19,15 +22,7 @@
 .about { grid-template-columns: 1fr 1.2fr; }
 @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
 
-.portrait {
-  background: linear-gradient(160deg, #3a1a0a 0%, #1a0d05 100%);
-  box-shadow: 10px 10px 0 var(--color-red);
-}
-.portrait::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(45deg, rgba(252,175,23,0.05) 0 10px, transparent 10px 22px);
-}
+.portrait { box-shadow: 10px 10px 0 var(--color-red); }
 
 .about-h2 { font-size: clamp(44px, 6vw, 80px); text-shadow: 0 0.08em 0 var(--color-red); }
 .about-p  { font-size: clamp(16px, 1.2vw, 19px); }
